@@ -1,0 +1,58 @@
+<div id="body">
+
+  <div style="text-align:center">
+    <h1>
+      This is {{ title }}!
+    </h1>
+  </div>
+  <div class="center">
+    <div class="inputs center">
+      <select #dollar class="input-height">
+        <option value="1">$</option>
+        <option value="2">$$</option>
+        <option value="3">$$$</option>
+        <option value="4">$$$$</option>
+      </select>
+  
+      <input #city id="city" class="input-height" placeholder="City">
+      <input #state id="state" class="input-height" placeholder="State">
+      <button (click)="onEnter(dollar.value, state.value, city.value)" class="input-height">Submit</button>
+    </div>
+  
+    <!-- <button (click)="onEnter()">Submit</button> -->
+  
+    <br />
+    <!-- this is the good one -->
+    <!-- {{ place | json }} -->
+  
+    <!-- {{ rndPlace | json }} -->
+    <br /><br />
+    <div *ngIf="show" id="main" class="center">
+      <img id="image" class="center" src={{rndPlace.image_url}}>
+      <br />
+      <div class="center">
+        {{ rndPlace.name }} </div><br />
+      <div *ngIf="zero"><img src="/assets/yelp_stars 2/web_and_ios/regular/regular_0.png"></div>
+      <div *ngIf="one"><img src="/assets/yelp_stars 2/web_and_ios/regular/regular_1.png"></div>
+      <div *ngIf="oneHalf"><img src="/assets/yelp_stars 2/web_and_ios/regular/regular_1_half.png"></div>
+      <div *ngIf="two"><img src="/assets/yelp_stars 2/web_and_ios/regular/regular_2.png"></div>
+      <div *ngIf="twoHalf"><img src="/assets/yelp_stars 2/web_and_ios/regular/regular_2_half.png"></div>
+      <div *ngIf="three"><img src="/assets/yelp_stars 2/web_and_ios/regular/regular_3.png"></div>
+      <div *ngIf="threeHalf"><img src="/assets/yelp_stars 2/web_and_ios/regular/regular_3_half.png"></div>
+      <div *ngIf="four"><img src="/assets/yelp_stars 2/web_and_ios/regular/regular_4.png"></div>
+      <div *ngIf="fourHalf"><img src="/assets/yelp_stars 2/web_and_ios/regular/regular_4_half.png"></div>
+      <div *ngIf="five"><img src="/assets/yelp_stars 2/web_and_ios/regular/regular_5.png"></div>
+      <br /> <br />
+      <div class="center">
+        {{ rndPlace.location.display_address[0] }} <br />
+        {{ rndPlace.location.display_address[1] }}
+        <br /> <br />
+        {{ rndPlace.phone}}
+        <br /> <br />
+        <div *ngIf="delivery">{{ rndPlace.name }} delivers </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  </div>
+  
